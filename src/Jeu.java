@@ -91,7 +91,7 @@ public class Jeu {
 	}
 
 	private void bilanTour() {
-		System.out.println("--Tour n° " + nbreTours + "--");
+		System.out.println("--Etape n° " + nbreTours + "--");
 		System.out.println("--Tour A--");
 		for(Disque d : tourA.getList()) {			
 			System.out.print("-" +  d.getLargeur() + "- ");
