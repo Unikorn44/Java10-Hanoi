@@ -8,6 +8,7 @@ public class Jeu {
 	Tour tourA;
 	Tour tourB;
 	Tour tourC;
+	int nbreTours = 0;
 	
 	
 	public Jeu() {
@@ -70,6 +71,7 @@ public class Jeu {
 		if(nbreDisque>0) {
 			hanoi((nbreDisque-1), tourDepart, tourIntermediaire, tourArrivee);
 			this.deplacement(tourDepart, tourArrivee);
+			nbreTours += 1;
 			bilanTour();
 			hanoi((nbreDisque-1), tourIntermediaire, tourArrivee, tourDepart);
 		}
@@ -89,6 +91,7 @@ public class Jeu {
 	}
 
 	private void bilanTour() {
+		System.out.println("--Tour n° " + nbreTours + "--");
 		System.out.println("--Tour A--");
 		for(Disque d : tourA.getList()) {			
 			System.out.print("-" +  d.getLargeur() + "- ");
