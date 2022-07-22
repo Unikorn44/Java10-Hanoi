@@ -9,12 +9,14 @@ public class Jeu {
 	Tour tourB;
 	Tour tourC;
 	int nbreTours = 0;
+	Ecriteur ecriteur;
 	
 	
 	public Jeu() {
 		tourA = new Tour("A");
 		tourB = new Tour("B");
 		tourC = new Tour("C");
+		this.ecriteur = new Ecriteur();
 	}
 	
 	
@@ -22,6 +24,7 @@ public class Jeu {
 	public void run() {
 		
 		this.creationDisques(tourA);
+		this.ecriteur.brosse();
 		this.bilanTour();
 		hanoi(getTourA().size(), tourA, tourC, tourB);
 	}
@@ -91,23 +94,36 @@ public class Jeu {
 	}
 
 	private void bilanTour() {
-		System.out.println("--Etape n° " + nbreTours + "--");
-		System.out.println("--Tour A--");
+		
+		//System.out.println("--Etape n° " + nbreTours + "--");
+		//System.out.println("--Tour A--");
+		ecriteur.run("--Etape n° " + nbreTours + "--");
+		ecriteur.run("--Tour A--");
 		for(Disque d : tourA.getList()) {			
-			System.out.print("-" +  d.getLargeur() + "- ");
+			//System.out.print("-" +  d.getLargeur() + "- ");
+			ecriteur.run("-" +  d.getLargeur() + "- ");
 		}
-		System.out.println(" ");
-		System.out.println("--Tour B--");
+		//System.out.println(" ");
+		//System.out.println("--Tour B--");
+		ecriteur.run(" ");
+		ecriteur.run("--Tour B--");
 		for(Disque d : tourB.getList()) {			
-			System.out.print("-" +  d.getLargeur() + "- ");
+			//System.out.print("-" +  d.getLargeur() + "- ");
+			ecriteur.run("-" +  d.getLargeur() + "- ");
 		}
-		System.out.println(" ");
-		System.out.println("--Tour C--");
+		//System.out.println(" ");
+		//System.out.println("--Tour C--");
+		ecriteur.run(" ");
+		ecriteur.run("--Tour C--");
 		for(Disque d : tourC.getList()) {			
-			System.out.print("-" +  d.getLargeur() + "- ");
+			//System.out.print("-" +  d.getLargeur() + "- ");
+			ecriteur.run("-" +  d.getLargeur() + "- ");
 		}
-		System.out.println(" ");
-		System.out.println("------");
+		//System.out.println(" ");
+		//System.out.println("------");
+		ecriteur.run("  ");
+		ecriteur.run("------");
+		
 	}
 
 	
